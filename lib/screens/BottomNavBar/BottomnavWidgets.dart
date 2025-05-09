@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../BottomPagesScreens/cart/cartpage.dart';
 import '../BottomPagesScreens/home/HomePage.dart';
+import '../BottomPagesScreens/more/more.dart';
 import '../BottomPagesScreens/user/userScreen.dart';
 
 Widget buildpage(int index) {
@@ -8,9 +10,9 @@ Widget buildpage(int index) {
     
    Homepage(),
    Userscreen(),
-    Center(child: Text('more')),
-    Center(child: Text('cart')),
-    Center(child: Text('Menu')),
+   Cartpage(),
+   More()
+   
     // Profile()
   ];
 
@@ -52,31 +54,15 @@ var bottomTabs = [
       ),
     ),
   ),
+ 
   BottomNavigationBarItem(
-    label: 'Courses',
-    icon: SizedBox(
-      height: 15,
-      width: 15,
-      child: Image.asset('assets/images/more.png'),
-    ),
-    tooltip: 'Courses',
-    activeIcon: SizedBox(
-      height: 15,
-      width: 15,
-      child: Image.asset(
-        'assets/images/more.png',
-       color: Colors.orange,
-      ),
-    ),
-  ),
-  BottomNavigationBarItem(
-    label: 'Chat',
+    label: 'Cart',
     icon: SizedBox(
       height: 15,
       width: 15,
       child: Image.asset('assets/images/cart.png'),
     ),
-    tooltip: 'Chat',
+    tooltip: 'Cart',
     activeIcon: SizedBox(
       height: 15,
       width: 15,
@@ -87,13 +73,13 @@ var bottomTabs = [
     ),
   ),
   BottomNavigationBarItem(
-    label: 'Profile',
+    label: 'Menu',
     icon: SizedBox(
       height: 15,
       width: 15,
       child: Image.asset('assets/images/menu.png'),
     ),
-    tooltip: 'Profile',
+    tooltip: 'Menu',
     activeIcon: SizedBox(
       height: 15,
       width: 15,

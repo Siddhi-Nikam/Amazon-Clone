@@ -1,3 +1,4 @@
+import 'package:e_commerce_amezon_clone/screens/productLists/mobilephones/mobilephones.dart';
 import 'package:flutter/material.dart';
 
 import '../scannerbottomsheet/bottomsheet.dart';
@@ -100,7 +101,7 @@ Widget Homeaddress() {
   );
 }
 
-Widget HomeCategories() {
+Widget HomeCategories(BuildContext context) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
     child: Row(
@@ -109,10 +110,20 @@ Widget HomeCategories() {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 40,
-              width: 40,
-              child: Image.asset('assets/images/category_images/mobiles.jpeg'),
+            GestureDetector(
+              child: SizedBox(
+                height: 40,
+                width: 40,
+                child: Image.asset(
+                  'assets/images/category_images/mobiles.jpeg',
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Mobilephones()),
+                );
+              },
             ),
             Text('Mobiles', style: TextStyle(fontWeight: FontWeight.bold)),
           ],
@@ -123,7 +134,12 @@ Widget HomeCategories() {
             SizedBox(
               height: 40,
               width: 40,
-              child: Image.asset('assets/images/category_images/fashion.jpeg'),
+              child: GestureDetector(
+                child: Image.asset('assets/images/category_images/fashion.jpeg'),
+                onTap: (){
+                  
+                },
+                ),
             ),
             Text('Fasion', style: TextStyle(fontWeight: FontWeight.bold)),
           ],

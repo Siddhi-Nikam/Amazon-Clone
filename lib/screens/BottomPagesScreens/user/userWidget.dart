@@ -9,7 +9,7 @@ Widget userappbar(BuildContext context) {
         colors: [Color(0xff84D8E3), Color(0xffA6E6CE)],
       ),
     ),
-    height: MediaQuery.sizeOf(context).height / 9,
+    height: MediaQuery.sizeOf(context).height / 9.5,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -83,12 +83,16 @@ Widget blurContainer() {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [userButton('Your Orders'), userButton('Buy Again')],
+            children: [
+              GestureDetector(child: userButton('Your Orders'), onTap: () {},), 
+              GestureDetector(child: userButton('Buy Again'), onTap: (){},)],
           ),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [userButton('Log Out'), userButton('Wish List')],
+            children: [
+              GestureDetector(child: userButton('Log Out'), onTap: (){},),
+              GestureDetector(child: userButton('Wish List'), onTap: (){},)],
           ),
         ],
       ),
@@ -118,31 +122,55 @@ Widget userButton(String text) {
   );
 }
 
-Widget userOrders(BuildContext context ,String productPath) {
+Widget userOrders(BuildContext context, String productPath) {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: Container(
       height: 200,
-      width: MediaQuery.sizeOf(context).width/2.3,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.grey,
-              )
-          ),
-          child: Image.asset(productPath),
+      width: MediaQuery.sizeOf(context).width / 2.3,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset(productPath),
+      ),
     ),
   );
 }
 
-Widget userOrderrow() {
+Widget userOrderrow(String leading, String trailing) {
   return Padding(
-    padding: const EdgeInsets.only(left : 10.0 , right: 10.0),
+    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Your Orders', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-        Text('See all', style: TextStyle(fontSize:12,color: Colors.cyan[800],fontWeight: FontWeight.bold ),)
+        Text(
+          leading,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          trailing,
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.cyan[800],
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
+    ),
+  );
+}
+
+Widget seperatorContainer() {
+  return Padding(
+    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+    child: Container(
+      height: 5,
+      width: double.infinity,
+      color: Colors.grey.shade300,
     ),
   );
 }

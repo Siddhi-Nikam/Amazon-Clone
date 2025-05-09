@@ -42,7 +42,7 @@ class _HomepageState extends State<Homepage> {
 
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: HomeCategories(),
+                child: HomeCategories(context),
               ),
 
               Image.asset(
@@ -57,8 +57,8 @@ class _HomepageState extends State<Homepage> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  'Deal of the day',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  'Deal of the Day',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: 5.0),
